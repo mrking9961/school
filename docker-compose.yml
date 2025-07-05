@@ -20,7 +20,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL= postgresql://king:king@localhost:5432/school
+      - DATABASE_URL: postgresql://king:king@localhost:5432/school
     depends_on:
       - postgres
 
