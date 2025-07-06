@@ -5,9 +5,9 @@ services:
     image: postgres:15
     container_name: postgres_db
     environment:
-      POSTGRES_USER: king
-      POSTGRES_PASSWORD: king
-      POSTGRES_DB: school
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ym2c4SQjK7*!Ek2
+      POSTGRES_DB: postgres
     ports:
       - '5432:5432'
     
@@ -20,7 +20,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL: postgresql://king:king@localhost:5432/school
+      - DATABASE_URL: postgresql://postgres:ym2c4SQjK7*!Ek2@db.nqllbaiggkfscbwpefxd.supabase.co:5432/postgres
     depends_on:
       - postgres
 
