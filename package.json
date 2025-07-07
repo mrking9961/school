@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",   
-    "postbuild": "prisma migrate deploy"
+    "lint": "next lint"
+    
   },
   "dependencies": {
     "@clerk/elements": "^0.14.6",
