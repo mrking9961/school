@@ -13,13 +13,12 @@ const UserCard = async ({
     parent: prisma.parent,
   };
 
-  let data: number = 0;
+  let data = 0;
 
   try {
     data = await modelMap[type].count();
   } catch (error) {
     console.error(`Error fetching count for ${type}:`, error);
-    data = 0; // fallback value
   }
 
   return (
