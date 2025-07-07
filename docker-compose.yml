@@ -5,9 +5,9 @@ services:
     image: postgres:15
     container_name: postgres_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: ym2c4SQjK7*!Ek2
-      POSTGRES_DB: postgres
+      POSTGRES_USER: tasued_user
+      POSTGRES_PASSWORD: DTcUq9BCr3j4TZLE0wF7edPK4ldAWl2T
+      POSTGRES_DB: tasued
     ports:
       - '5432:5432'
     
@@ -20,7 +20,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL: postgresql://postgres:ym2c4SQjK7*!Ek2@db.nqllbaiggkfscbwpefxd.supabase.co:5432/postgres
+      - DATABASE_URL: postgresql://tasued_user:DTcUq9BCr3j4TZLE0wF7edPK4ldAWl2T@dpg-d1lnmlbe5dus73fu1sg0-a.oregon-postgres.render.com/tasued
     depends_on:
       - postgres
 
