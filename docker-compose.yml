@@ -20,7 +20,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - DATABASE_URL: postgresql://tasued_user:DTcUq9BCr3j4TZLE0wF7edPK4ldAWl2T@dpg-d1lnmlbe5dus73fu1sg0-a.oregon-postgres.render.com/tasued
+      - DATABASE_URL: env("DATABASE_URL")
     depends_on:
       - postgres
 
