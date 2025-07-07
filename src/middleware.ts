@@ -7,27 +7,31 @@ const matchers = Object.keys(routeAccessMap).map((route) => ({
   allowedRoles: routeAccessMap[route],
 }));
 
-console.log(matchers);
+// if (process.env.NODE_ENV !== "production") {
+//   console.log("Route matchers:", matchers);
+// }
 
 export default clerkMiddleware((auth, req) => {
-  // if (isProtectedRoute(req)) auth().protect()
-
   const { sessionClaims } = auth();
 
-  const role = (sessionClaims?.metadata as { role?: string })?.role;
+  if (!sessionClaims) return; // Allow public routes
 
+  const role = (sessionClaims?.metadata as { role?: string })?.role;
+  // console.log("User role:", role); 
+ // console.log("Session claims:", sessionClaims); 
   for (const { matcher, allowedRoles } of matchers) {
-    if (matcher(req) && !allowedRoles.includes(role!)) {
-      return NextResponse.redirect(new URL(`/${role}`, req.url));
-    }
+  //  if (matcher(req) && (!role || !allowedRoles.includes(role))) {
+  //   return NextResponse.redirect(new URL("/unauthorized", req.url));
+  //    }
   }
 });
+
 
 export const config = {
   matcher: [
     // Skip Next.js internals and all static files, unless found in search params
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
     // Always run for API routes
-    "/(api|trpc)(.*)",
+    '/(api|trpc)(.*)',
   ],
 };
