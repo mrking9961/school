@@ -6,18 +6,19 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",   
+    "postbuild": "prisma migrate deploy"
   },
   "dependencies": {
     "@clerk/elements": "^0.14.6",
     "@clerk/nextjs": "^5.4.1",
     "@hookform/resolvers": "^3.9.0",
-    "@prisma/client": "^5.19.1",
+    "@prisma/client": "^5.22.0",
     "@types/react-big-calendar": "^1.8.9",
     "moment": "^2.30.1",
     "next": "14.2.5",
     "next-cloudinary": "^6.13.0",
-    "prisma": "^5.19.1",
+    "prisma": "^5.22.0",
     "react": "^18",
     "react-big-calendar": "^1.13.2",
     "react-calendar": "^5.0.0",
